@@ -14,15 +14,10 @@ const Navbar = () => {
     const [nav, setNav] = useState(false);
     const handleClick = () => setNav(!nav);
 
-    const openResume = () => {
-        window.open('./Resume.pdf', '_blank');
-        setNav(false);
-    };
-
     return (
         <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0c0c0c] text-gray-300">
             <div>
-                <h1 className=" font-thin text-2xl bold font-serif">ABHI</h1>
+                <h1 className="font-thin text-2xl font-serif">ABHI</h1>
             </div>
             <ul className='hidden md:flex gap-x-8'>
                 <li>
@@ -30,8 +25,10 @@ const Navbar = () => {
                         Home
                     </Link>
                 </li>
-                <li onClick={openResume} style={{ cursor: 'pointer' }}>
-                    Resume
+                <li>
+                    <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
+                        Resume
+                    </a>
                 </li>
                 <li>
                     <Link to='about' smooth={true} duration={500}>
@@ -53,8 +50,6 @@ const Navbar = () => {
                         Contact
                     </Link>
                 </li>
-
-
             </ul>
             {/* Hamburger */}
             <div onClick={handleClick} className='md:hidden z-10'>
@@ -73,8 +68,15 @@ const Navbar = () => {
                         Home
                     </Link>
                 </li>
-                <li onClick={openResume} style={{ cursor: 'pointer' }}>
-                    Resume
+                <li className='py-6 text-4xl'>
+                    <a
+                        href="/Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setNav(false)}
+                    >
+                        Resume
+                    </a>
                 </li>
                 <li className='py-6 text-4xl'>
                     <Link onClick={handleClick} to='about' smooth={true} duration={500}>
@@ -128,8 +130,10 @@ const Navbar = () => {
                     </li>
                     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]'>
                         <a
-                            className='flex justify-between items-center w-full text-gray-300 cursor-pointer'
-                            onClick={openResume}
+                            className='flex justify-between items-center w-full text-gray-300'
+                            href='/Resume.pdf'
+                            target='_blank'
+                            rel='noopener noreferrer'
                         >
                             Resume <BsFillPersonLinesFill size={30} />
                         </a>
